@@ -35,7 +35,7 @@
   {{ auth.error }}
 </div>
 <div *ngIf="auth.user" class="container">
-  Logged as <b>{{ auth.user.email }}</b> |
+  Logged as <b>{{ auth.user.email }}</b> 
   <button (click)="auth.signOut()" class="btn btn-primary">Exit</button>
   <hr />
 
@@ -62,9 +62,7 @@
         <td [title]="'chave: ' + item.key">{{ item.task }}</td>
         <td>{{ item.description }}</td>
         <td>
-          <button (click)="deleteItem(item.key)" class="btn btn-danger">
-            Done
-          </button>
+          <i class="bi bi-check-circle-fill"></i>
         </td>
       </tr>
     </tbody>
