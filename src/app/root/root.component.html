@@ -35,11 +35,11 @@
   {{ auth.error }}
 </div>
 <div *ngIf="auth.user" class="container">
-  Logged as <b>{{ auth.user.email }}</b> 
+  Logged as <b>{{ auth.user.email }}</b>
   <button (click)="auth.signOut()" class="btn btn-primary">Exit</button>
   <hr />
 
-  <h2>Firebase list</h2>
+  <h2>My list of tasks</h2>
   <hr />
   <div>Task</div>
   <div><input [(ngModel)]="formNewTask" class="form-control" /></div>
@@ -48,7 +48,7 @@
     <input type="text" [(ngModel)]="formNewDescription" class="form-control" />
   </div>
   <br />
-  <i (click)="addItem()" class="bi bi-plus-circle-fill"></i>
+  <button (click)="addItem()" class="btn btn-primary">Adicionar</button>
   <hr />
   <table class="table table-striped">
     <thead>
@@ -62,7 +62,9 @@
         <td [title]="'chave: ' + item.key">{{ item.task }}</td>
         <td>{{ item.description }}</td>
         <td>
-          <i class="bi bi-check-circle-fill"></i>
+          <button (click)="deleteItem(item.key)" class="btn btn-danger">
+            Done
+          </button>
         </td>
       </tr>
     </tbody>
