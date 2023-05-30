@@ -33,21 +33,22 @@
   <br />
   <button (click)="addItem()" class="btn btn-primary">Adicionar</button>
   <hr />
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Task</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let item of list | async">
-        <td [title]="'chave: ' + item.key">{{ item.task }}</td>
-        <td>{{ item.description }}</td>
-        <td>
-          <button (click)="deleteItem(item.key)" class="btn btn-danger">Done</button>
-        </td>
-      </tr>
-    </tbody>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Task</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of list | async">
+          <td [title]="'chave: ' + item.key">{{ item.task }}</td>
+          <td>{{ item.description }}</td>
+          <td>
+            <button (click)="deleteItem(item.key)" class="btn btn-danger">Done</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </table>
 </div>
