@@ -3,15 +3,30 @@
     <fieldset>
       <legend>Login</legend>
       <div class="mb-3">Email</div>
-      <input type="text" name="email" [(ngModel)]="email" class="form-control" />
+      <input
+        type="text"
+        name="email"
+        [(ngModel)]="email"
+        class="form-control"
+      />
       <div class="mb-3">Senha</div>
-      <input type="password" name="password" [(ngModel)]="password" class="form-control" />
+      <input
+        type="password"
+        name="password"
+        [(ngModel)]="password"
+        class="form-control"
+      />
       <hr />
-      <button (click)="auth.emailSignin(this.email, this.password)" class="btn btn-primary m-2">
+      <button
+        (click)="auth.emailSignin(this.email, this.password)"
+        class="btn btn-primary m-2"
+      >
         Login with e-mail
       </button>
-      
-      <button (click)="auth.googleSignin()" class="btn btn-primary m-2">Login with Google</button>
+
+      <button (click)="auth.googleSignin()" class="btn btn-primary m-2">
+        Login with Google
+      </button>
     </fieldset>
   </form>
 </div>
@@ -29,26 +44,29 @@
   <div>Task</div>
   <div><input [(ngModel)]="formNewTask" class="form-control" /></div>
   <div>Description</div>
-  <div><input type="text" [(ngModel)]="formNewDescription" class="form-control" /></div>
+  <div>
+    <input type="text" [(ngModel)]="formNewDescription" class="form-control" />
+  </div>
   <br />
-  <button (click)="addItem()" class="btn btn-primary">Adicionar</button><i class="bi bi-plus-circle-fill"></i>
+  <i (click)="addItem()" class="bi bi-plus-circle-fill"></i>
   <hr />
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th>Task</th>
-          <th>Description</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let item of list | async">
-          <td [title]="'chave: ' + item.key">{{ item.task }}</td>
-          <td>{{ item.description }}</td>
-          <td>
-            <button (click)="deleteItem(item.key)" class="btn btn-danger">Done</button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Task</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of list | async">
+        <td [title]="'chave: ' + item.key">{{ item.task }}</td>
+        <td>{{ item.description }}</td>
+        <td>
+          <button (click)="deleteItem(item.key)" class="btn btn-danger">
+            Done
+          </button>
+        </td>
+      </tr>
+    </tbody>
   </table>
 </div>
