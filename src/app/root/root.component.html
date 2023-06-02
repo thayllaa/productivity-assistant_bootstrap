@@ -21,14 +21,14 @@
       <br />
       <button
         (click)="auth.emailSignin(this.email, this.password)"
-        class="btn btn-danger btn-primary btn-lg"
+        class="btn btn-danger btn-primary btn-sm"
       >
         Login with e-mail
       </button>
       &nbsp;
       <button
         (click)="auth.googleSignin()"
-        class="btn btn-primary btn-lg active"
+        class="btn btn-primary btn-sm active"
       >
         Login with Google
       </button>
@@ -41,7 +41,7 @@
 </div>
 <div *ngIf="auth.user">
   Logged as <b>{{ auth.user.email }}</b> &nbsp;
-  <button (click)="auth.signOut()" class="btn btn-sm btn-outline-secondary">
+  <button (click)="auth.signOut()" class="btn btn-outline-secondary btn-sm">
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="16"
@@ -141,8 +141,8 @@
   <table class="table table-sm table-striped table-hover">
     <thead>
       <tr>
-        <th>Task</th>
-        <th>Description</th>
+        <th scope="row">Task</th>
+        <th scope="row">Description</th>
       </tr>
     </thead>
     <tbody>
