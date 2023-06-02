@@ -21,15 +21,12 @@
       <br />
       <button
         (click)="auth.emailSignin(this.email, this.password)"
-        class="btn btn-danger btn-primary btn-sm"
+        class="btn btn-danger btn-sm"
       >
         Login with e-mail
       </button>
       &nbsp;
-      <button
-        (click)="auth.googleSignin()"
-        class="btn btn-primary btn-sm active"
-      >
+      <button (click)="auth.googleSignin()" class="btn btn-primary btn-sm">
         Login with Google
       </button>
     </fieldset>
