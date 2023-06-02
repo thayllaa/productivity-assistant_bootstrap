@@ -2,7 +2,9 @@
   margin: 3px
 }
 
-button {
-  border-radius: 6px;
-  margin: auto;
+h2 {
+  color: darkblue;
+  margin-left: 8px;
+  margin-top: 10px;
+  text-align: center;
 }
