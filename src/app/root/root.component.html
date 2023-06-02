@@ -18,15 +18,15 @@
         [(ngModel)]="password"
         class="form-control"
       />
-      <hr />
+      <br>
       <button
         (click)="auth.emailSignin(this.email, this.password)"
-        class="btn btn-primary m-2"
+        class="btn btn-danger btn-primary btn-lg"
       >
         Login with e-mail
       </button>
-
-      <button (click)="auth.googleSignin()" class="btn btn-primary m-2">
+      &nbsp;
+      <button (click)="auth.googleSignin()" class="btn btn-primary btn-lg active">
         Login with Google
       </button>
     </fieldset>
@@ -38,7 +38,7 @@
 </div>
 <div *ngIf="auth.user">
   Logged as <b>{{ auth.user.email }}</b> &nbsp;
-  <button (click)="auth.signOut()">
+  <button (click)="auth.signOut()" class="btn btn-outline-secondary">
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="16"
@@ -65,11 +65,11 @@
   <div>Description</div>
   <div>
     <input type="text" [(ngModel)]="formNewDescription" class="form-control" />
-    <button (click)="addItem()">
+    <button (click)="addItem()" class="btn btn-outline-success">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="16"
-        height="14"
+        height="16"
         fill="currentColor"
         class="bi bi-plus-lg"
         viewBox="0 0 16 16"
@@ -81,7 +81,7 @@
       </svg>
     </button>
   </div>
-  <hr />
+  <br />
   <table class="table table-striped">
     <thead>
       <tr>
@@ -94,7 +94,7 @@
         <td [title]="'chave: ' + item.key">{{ item.task }}</td>
         <td>{{ item.description }}</td>
         <td>
-          <button (click)="deleteItem(item.key)" class="btn btn-danger">
+          <button (click)="deleteItem(item.key)" class="btn btn-outline-danger">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="16"
