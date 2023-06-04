@@ -8,6 +8,8 @@ h2 {
   margin-left: 8px;
   margin-top: 10px;
   text-align: center;
+  font-weight: 800;
+
 }
 
 legend {
@@ -17,4 +19,13 @@ legend {
 
 .mb-3 {
   margin: 0;
+}
+
+table {
+  vertical-align: middle;
+}
+
+thead, td {
+  text-align: center;
+  margin: auto;
 }
