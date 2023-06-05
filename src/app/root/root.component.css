@@ -3,8 +3,8 @@
   font-family: 'Times New Roman', Times, serif;
 }
 
-h2 {
-  color: darkslategrey;
+h1 {
+  color: #3c2a1e;
   margin-left: 8px;
   margin-top: 10px;
   text-align: center;
@@ -12,8 +12,14 @@ h2 {
 }
 
 legend {
+  color: #232647;
   text-align: center;
   font-weight: 700;
+  font-size: xx-large;
+}
+
+input {
+  margin-bottom: 3%;
 }
 
 table {
