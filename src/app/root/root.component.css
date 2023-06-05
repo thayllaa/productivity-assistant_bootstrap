@@ -9,7 +9,6 @@ h2 {
   margin-top: 10px;
   text-align: center;
   font-weight: 800;
-
 }
 
 legend {
@@ -21,6 +20,14 @@ table {
   vertical-align: middle;
 }
 
-thead, td {
+thead {
   text-align: center;
+  color: #6f4e37;
+  font-weight: 600;
+  vertical-align: middle;
+}
+
+td {
+  text-align: center;
+  color: #000;
 }
