@@ -18,7 +18,7 @@
         [(ngModel)]="password"
         class="form-control"
       />
-      <div class="d-grid">
+      <div class="d-grid d-md-block">
         <button
           (click)="auth.emailSignin(this.email, this.password)"
           class="btn btn-danger btn-sm"
@@ -70,9 +70,9 @@
       xmlns="http://www.w3.org/2000/svg"
       width="16"
       height="16"
-      fill="#2d2016"
+      fill="currentColor"
       class="bi bi-box-arrow-in-left"
-      viewBox="0 0 16 16"
+      viewBox="0 0 12 16"
     >
       <path
         fill-rule="evenodd"
@@ -95,7 +95,7 @@
           xmlns="http://www.w3.org/2000/svg"
           width="16"
           height="16"
-          fill="currentColor"
+          fill="#003c11"
           class="bi bi-journal-check"
           viewBox="0 0 16 16"
         >
@@ -127,7 +127,7 @@
           xmlns="http://www.w3.org/2000/svg"
           width="16"
           height="16"
-          fill="currentColor"
+          fill="#003c11"
           class="bi bi-card-text"
           viewBox="0 0 16 16"
         >
@@ -150,7 +150,7 @@
           xmlns="http://www.w3.org/2000/svg"
           width="16"
           height="16"
-          fill="currentColor"
+          fill="#003c11"
           class="bi bi-plus-lg"
           viewBox="0 0 16 16"
         >
@@ -164,11 +164,11 @@
   </div>
   <div class="responsive-table">
     <table class="table table-sm table-striped table-hover">
-      <thead class="table-coffee">
+      <thead>
         <tr>
-          <th scope="row">Task</th>
-          <th scope="row">Description</th>
-          <th scope="row">Action</th>
+          <th>Task</th>
+          <th>Description</th>
+          <th>Action</th>
         </tr>
       </thead>
       <tbody>
@@ -182,8 +182,8 @@
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
+                width="14"
+                height="14"
                 fill="currentColor"
                 class="bi bi-trash3-fill"
                 viewBox="0 0 16 16"
