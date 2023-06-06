@@ -9,8 +9,8 @@
             name="email"
             [(ngModel)]="email"
             class="form-control"
-            placeholder="E-mail"
             id="inputEmail"
+            placeholder="Email here"
           />
           <label for="inputEmail">Email</label>
         </div>
@@ -20,10 +20,10 @@
             name="password"
             [(ngModel)]="password"
             class="form-control"
-            placeholder="Senha"
             id="inputPassword"
+            placeholder="Password here"
           />
-          <label for="inputPassword">Senha</label>
+          <label for="inputPassword">Password</label>
         </div>
         <button
           (click)="auth.emailSignin(this.email, this.password)"
@@ -71,7 +71,7 @@
   </div>
 </div>
 
-<div *ngIf="auth.error" style="color: red" class="container">
+<div *ngIf="auth.error" style="color: red" class="alert alert-danger">
   {{ auth.error }}
 </div>
 <div *ngIf="auth.user">
