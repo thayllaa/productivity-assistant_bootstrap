@@ -3,6 +3,10 @@
   font-family: 'Times New Roman';
 }
 
+.user {
+  text-align: right;
+}
+
 h1 {
   color: #00561d;
   margin-left: 8px;
