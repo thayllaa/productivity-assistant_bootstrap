@@ -9,8 +9,8 @@
             name="email"
             [(ngModel)]="email"
             class="form-control"
+            placeholder="E-mail"
             id="inputEmail"
-            placeholder="Email here"
           />
           <label for="inputEmail">Email</label>
         </div>
@@ -20,10 +20,10 @@
             name="password"
             [(ngModel)]="password"
             class="form-control"
+            placeholder="Senha"
             id="inputPassword"
-            placeholder="Password here"
           />
-          <label for="inputPassword">Password</label>
+          <label for="inputPassword">Senha</label>
         </div>
         <button
           (click)="auth.emailSignin(this.email, this.password)"
@@ -45,7 +45,7 @@
             />
           </svg>
 
-          Login with Email
+          Login with e-mail
         </button>
 
         <button
@@ -71,61 +71,25 @@
   </div>
 </div>
 
-<div *ngIf="auth.error" style="color: red" class="alert alert-danger">
+<div *ngIf="auth.error" style="color: red" class="container">
   {{ auth.error }}
 </div>
-<div *ngIf="auth.user">
-  <b class="user">{{ auth.user.email }}</b>
-  <button (click)="auth.signOut()" class="btn btn-outline-secondary btn-sm">
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="16"
-      height="16"
-      fill="currentColor"
-      class="bi bi-box-arrow-in-left"
-      viewBox="0 0 12 16"
-    >
-      <path
-        fill-rule="evenodd"
-        d="M10 3.5a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v9a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-2a.5.5 0 0 1 1 0v2A1.5 1.5 0 0 1 9.5 14h-8A1.5 1.5 0 0 1 0 12.5v-9A1.5 1.5 0 0 1 1.5 2h8A1.5 1.5 0 0 1 11 3.5v2a.5.5 0 0 1-1 0v-2z"
-      />
-      <path
-        fill-rule="evenodd"
-        d="M4.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H14.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3z"
-      />
+<div *ngIf="auth.user" class="container">
+  <b>{{ auth.user.email }}</b>
+  <button (click)="auth.signOut()" class="btn btn-secondary">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-in-left" viewBox="0 0 16 16">
+      <path fill-rule="evenodd" d="M10 3.5a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v9a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-2a.5.5 0 0 1 1 0v2A1.5 1.5 0 0 1 9.5 14h-8A1.5 1.5 0 0 1 0 12.5v-9A1.5 1.5 0 0 1 1.5 2h8A1.5 1.5 0 0 1 11 3.5v2a.5.5 0 0 1-1 0v-2z"/>
+      <path fill-rule="evenodd" d="M4.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H14.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3z"/>
     </svg>
   </button>
+  <hr />
 
-  <!-- MENU -->
-  <app-pomodoro></app-pomodoro>
-  <div>
-    <div id="btn-div">
-      <button (click)="toggleContainerPomodoro()" class="btn btn-primary">
-        Pomodoro
-      </button>
-    </div>
+  <app-pomodoro-timer></app-pomodoro-timer>
+  <div id="btn-div2">
+    <button (click)="toggleContainerTodoList()" class="btn btn-primary">
+      Todo-List
+    </button>
   </div>
-  <br />
-  <div>
-    <div id="btn-div">
-      <button (click)="toggleContainerTodoList()" class="btn btn-primary">
-        Todo List
-      </button>
-    </div>
-  </div>
-
-  <div>
-    <h2> Pomodoro </h2>
-    <p> Tempo restante: {{ formatTime() }} </p>
-    <div>
-      <label> Número de ciclos: </label>
-      <input type="number" id="cycles" [(ngModel)]="cycles" min="1" step="1" />
-      <button (click)="startTimer()" [disabled]="timerRunning"> Iniciar </button>
-      <button (click)="pauseTimer()" [disabled]="!timerRunning" > Pausar </button>
-      <button (clcik)="resetTimer()"> Reiniciar </button>
-    </div>
-  </div>
-
   <div class="container" [hidden]="!isContainerVisible">
     <h1>My list of tasks</h1>
     <div>
@@ -156,7 +120,7 @@
           [(ngModel)]="formNewTask"
           type="text"
           class="form-control"
-          placeholder="Write the task name here"
+          placeholder="Task name"
         />
       </div>
     </div>
@@ -184,7 +148,7 @@
           [(ngModel)]="formNewDescription"
           type="text"
           class="form-control"
-          placeholder="Write the task description here"
+          placeholder="Task description"
         />
         <span class="input-group-text" (click)="addItem()">
           <svg
@@ -203,41 +167,38 @@
         </span>
       </div>
     </div>
-    <div class="responsive-table">
-      <table class="table table-sm table-striped table-hover">
-        <thead>
-          <tr>
-            <th>Task</th>
-            <th>Description</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let item of list | async">
-            <td [title]="'chave: ' + item.key">{{ item.task }}</td>
-            <td>{{ item.description }}</td>
-            <td>
-              <button
-                (click)="deleteItem(item.key)"
-                class="btn btn-outline-danger"
+
+    <div class="col-12 py-3">
+      <div class="card bg-white mt-4" *ngFor="let item of list | async">
+        <div class="card-header">
+          {{ item.task }}
+        </div>
+        <div class="card-body text-dark">
+          <h4 class="card-title">{{ item.description }}</h4>
+        </div>
+        <div class="card-footer text-muted d-flex justify-content-between">
+          <div></div>
+          <div>
+            <button
+              (click)="deleteItem(item.key)"
+              class="btn btn-outline-danger"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="14"
+                height="14"
+                fill="currentColor"
+                class="bi bi-trash3-fill"
+                viewBox="0 0 16 16"
               >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="14"
-                  height="14"
-                  fill="currentColor"
-                  class="bi bi-trash3-fill"
-                  viewBox="0 0 16 16"
-                >
-                  <path
-                    d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5Zm-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5ZM4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06Zm6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528ZM8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5Z"
-                  />
-                </svg>
-              </button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+                <path
+                  d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5Zm-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5ZM4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06Zm6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528ZM8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5Z"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>

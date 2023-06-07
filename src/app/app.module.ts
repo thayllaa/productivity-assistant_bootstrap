@@ -7,7 +7,8 @@ import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { AuthService } from './auth.service';
-import { PomodoroTimerComponent } from './pomodoro/pomodoro.component';
+import { PomodoroTimerComponent } from './pomodoro-timer/pomodoro-timer.component';
+
 
 @NgModule({
   imports: [
@@ -26,7 +27,7 @@ import { PomodoroTimerComponent } from './pomodoro/pomodoro.component';
     AngularFireAuthModule,
     AngularFireDatabaseModule,
   ],
-  declarations: [RootComponent, PomodoroTimerComponent],
+  declarations: [RootComponent,PomodoroTimerComponent],
   bootstrap: [RootComponent, PomodoroTimerComponent],
   providers: [AuthService],
 })
