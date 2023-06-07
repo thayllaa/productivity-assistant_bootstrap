@@ -9,8 +9,8 @@
             name="email"
             [(ngModel)]="email"
             class="form-control"
-            placeholder="E-mail"
             id="inputEmail"
+            placeholder="Email here"
           />
           <label for="inputEmail">Email</label>
         </div>
@@ -20,10 +20,10 @@
             name="password"
             [(ngModel)]="password"
             class="form-control"
-            placeholder="Senha"
             id="inputPassword"
+            placeholder="Password here"
           />
-          <label for="inputPassword">Senha</label>
+          <label for="inputPassword">Password</label>
         </div>
         <button
           (click)="auth.emailSignin(this.email, this.password)"
@@ -45,7 +45,7 @@
             />
           </svg>
 
-          Login with e-mail
+          Login with Email
         </button>
 
         <button
@@ -71,17 +71,31 @@
   </div>
 </div>
 
-<div *ngIf="auth.error" style="color: red" class="container">
+<div *ngIf="auth.error" style="color: red" class="alert alert-danger">
   {{ auth.error }}
 </div>
-<div *ngIf="auth.user" class="container">
-  <b>{{ auth.user.email }}</b>
-  <button (click)="auth.signOut()" class="btn btn-secondary">
-    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-in-left" viewBox="0 0 16 16">
-      <path fill-rule="evenodd" d="M10 3.5a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v9a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-2a.5.5 0 0 1 1 0v2A1.5 1.5 0 0 1 9.5 14h-8A1.5 1.5 0 0 1 0 12.5v-9A1.5 1.5 0 0 1 1.5 2h8A1.5 1.5 0 0 1 11 3.5v2a.5.5 0 0 1-1 0v-2z"/>
-      <path fill-rule="evenodd" d="M4.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H14.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3z"/>
+<div *ngIf="auth.user">
+  <b class="user">{{ auth.user.email }}</b>
+  <button (click)="auth.signOut()" class="btn btn-outline-secondary btn-sm">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="16"
+      height="16"
+      fill="currentColor"
+      class="bi bi-box-arrow-in-left"
+      viewBox="0 0 12 16"
+    >
+      <path
+        fill-rule="evenodd"
+        d="M10 3.5a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v9a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-2a.5.5 0 0 1 1 0v2A1.5 1.5 0 0 1 9.5 14h-8A1.5 1.5 0 0 1 0 12.5v-9A1.5 1.5 0 0 1 1.5 2h8A1.5 1.5 0 0 1 11 3.5v2a.5.5 0 0 1-1 0v-2z"
+      />
+      <path
+        fill-rule="evenodd"
+        d="M4.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H14.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3z"
+      />
     </svg>
   </button>
+  <!-- MENU -->
   <hr />
 
   <app-pomodoro-timer></app-pomodoro-timer>
